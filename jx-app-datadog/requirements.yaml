@@ -1,0 +1,4 @@
+dependencies:
+- name: "datadog"
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 1.26.0

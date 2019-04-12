@@ -9,9 +9,19 @@
       "properties": {
         "apiKey": {
           "type": "string",
-          "title": "Datadog API key",
+          "title": "Enter your Datadog API key",
           "description": "You can retrieve your Datadog API key from https://app.datadoghq.com/account/settings#agent/kubernetes",
           "format": "token-passthrough"
+        },
+        "logEnabled": {
+          "type": "boolean",
+          "title": "Activate Datadog Agent log collection?",
+          "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+        },
+        "logsConfigContainerCollectAll": {
+          "type": "boolean",
+          "title": "Enable log collection for all containers?",
+          "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
         }
       }
     }

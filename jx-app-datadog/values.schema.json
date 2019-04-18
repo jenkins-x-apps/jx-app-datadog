@@ -22,6 +22,11 @@
           "type": "boolean",
           "title": "Enable log collection for all containers?",
           "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+        },
+        "site": {
+          "type": "string",
+          "title": "Which datadog intake site do you want to use?",
+          "default": "datadoghq.com"
         }
       }
     }

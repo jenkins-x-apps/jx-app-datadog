@@ -16,7 +16,7 @@
               "description": "You can retrieve your Datadog API key from https://app.datadoghq.com/account/settings#agent/kubernetes",
               "format": "token-passthrough"
             },
-            "logEnabled": {
+            "logsEnabled": {
               "type": "boolean",
               "title": "Activate Datadog Agent log collection?",
               "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
@@ -28,7 +28,7 @@
             }
           },
           "if": {
-            "properties": { "logEnabled": { "const": "true" } }
+            "properties": { "logsEnabled": { "type": "boolean", "const": "true" } }
           },
           "then": {
             "properties": {

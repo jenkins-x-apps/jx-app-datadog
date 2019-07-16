@@ -7,32 +7,37 @@
     "datadog": {
       "type": "object",
       "properties": {
-        "apiKey": {
-          "type": "string",
-          "title": "Enter your Datadog API key",
-          "description": "You can retrieve your Datadog API key from https://app.datadoghq.com/account/settings#agent/kubernetes",
-          "format": "token-passthrough"
-        },
-        "logEnabled": {
-          "type": "boolean",
-          "title": "Activate Datadog Agent log collection?",
-          "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
-        },
-        "site": {
-          "type": "string",
-          "title": "Which datadog intake site do you want to use?",
-          "default": "datadoghq.com"
-        }
-      },
-      "if": {
-        "properties": { "logEnabled": { "const": "true" } }
-      },
-      "then": {
-        "properties": {
-          "logsConfigContainerCollectAll": {
-            "type": "boolean",
-            "title": "Enable log collection for all containers?",
-            "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+        "datadog": {
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "title": "Enter your Datadog API key",
+              "description": "You can retrieve your Datadog API key from https://app.datadoghq.com/account/settings#agent/kubernetes",
+              "format": "token-passthrough"
+            },
+            "logsEnabled": {
+              "type": "boolean",
+              "title": "Activate Datadog Agent log collection?",
+              "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+            },
+            "site": {
+              "type": "string",
+              "title": "Which datadog intake site do you want to use?",
+              "default": "datadoghq.com"
+            }
+          },
+          "if": {
+            "properties": { "logsEnabled": { "type": "boolean", "const": "true" } }
+          },
+          "then": {
+            "properties": {
+              "logsConfigContainerCollectAll": {
+                "type": "boolean",
+                "title": "Enable log collection for all containers?",
+                "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+              }
+            }
           }
         }
       }

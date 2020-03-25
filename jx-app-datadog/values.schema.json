@@ -16,6 +16,12 @@
               "description": "You can retrieve your Datadog API key from https://app.datadoghq.com/account/settings#agent/kubernetes",
               "format": "token"
             },
+            "appKey": {
+              "type": "string",
+              "title": "Enter your Datadog APP key",
+              "description": "You can retrieve your Datadog APP key from https://app.datadoghq.com/account/settings#agent/kubernetes",
+              "format": "token"
+            },
             "logsEnabled": {
               "type": "boolean",
               "title": "Activate Datadog Agent log collection?",

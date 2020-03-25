@@ -19,7 +19,7 @@
             "appKey": {
               "type": "string",
               "title": "Enter your Datadog APP key",
-              "description": "You can retrieve your Datadog APP key from https://cloudbees-cdx.datadoghq.com/account/settings#api",
+              "description": "You can retrieve your Datadog APP key from https://app.datadoghq.com/account/settings#agent/kubernetes",
               "format": "token"
             },
             "logsEnabled": {

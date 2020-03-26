@@ -22,10 +22,26 @@
               "description": "You can retrieve your Datadog APP key from https://app.datadoghq.com/account/settings#agent/kubernetes",
               "format": "token"
             },
-            "logsEnabled": {
-              "type": "boolean",
-              "title": "Activate Datadog Agent log collection?",
-              "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+            "logs": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "title": "Activate Datadog Agent log collection?",
+                  "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+                },
+              "if": {
+                "properties": { "enabled": { "type": "boolean", "const": "true" } }
+              },
+              "then": {
+                "properties": {
+                 "containerCollectAll": {
+                   "type": "boolean",
+                   "title": "Activate Datadog Agent log collection from all containers?",
+                   "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
+                 }
+                }
+              }
             },
             "collectEvents": {
               "type": "boolean",
@@ -43,18 +59,6 @@
               "type": "string",
               "title": "Which datadog intake site do you want to use?",
               "default": "datadoghq.com"
-            }
-          },
-          "if": {
-            "properties": { "logsEnabled": { "type": "boolean", "const": "true" } }
-          },
-          "then": {
-            "properties": {
-              "logsConfigContainerCollectAll": {
-                "type": "boolean",
-                "title": "Enable log collection for all containers?",
-                "description": "See https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup"
-              }
             }
           }
         }
